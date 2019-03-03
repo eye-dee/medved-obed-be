@@ -4,6 +4,7 @@ import com.igor.medvedobedbe.controller.model.Metric;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -47,5 +48,10 @@ public class MetricsController {
   @DeleteMapping("{name}")
   public void deleteMetric(@PathVariable String name) {
     METRICS.remove(name);
+  }
+
+  @GetMapping("names")
+  public Set<String> allNames() {
+    return METRICS.keySet();
   }
 }
