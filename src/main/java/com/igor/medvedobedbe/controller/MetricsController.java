@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,5 +42,10 @@ public class MetricsController {
     } else {
      return metrics.subList(metrics.size() - offset, metrics.size());
     }
+  }
+
+  @DeleteMapping("{name}")
+  public void deleteMetric(@PathVariable String name) {
+    METRICS.remove(name);
   }
 }
