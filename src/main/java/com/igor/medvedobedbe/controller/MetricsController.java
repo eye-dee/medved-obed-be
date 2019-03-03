@@ -31,7 +31,7 @@ public class MetricsController {
         .flatMap(List::stream)
         .collect(Collectors.toList()));
 
-    return ResponseEntity.accepted().build();
+    return ResponseEntity.accepted().body(metric);
   }
 
   @GetMapping("{name}/offset/{offset}")
